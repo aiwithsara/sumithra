@@ -1,0 +1,1151 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sumithra Ramachandran | Finance Professional</title>
+    <!-- Google Fonts to match the demo style -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+    <style>
+        /* --- CSS VARIABLES & RESET --- */
+        :root {
+            --primary-color: #2563eb;
+            --primary-light: #3b82f6;
+            --accent-gold: #d4a742;
+            --dark-bg: #0f172a;
+            --text-grey: #94a3b8;
+            --light-bg: #f8fafc;
+            --white: #ffffff;
+            --font-main: 'Poppins', sans-serif;
+        }
+
+        /* --- ANIMATIONS --- */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
+        }
+
+        @keyframes slideInLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-50px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes pulse {
+
+            0%,
+            100% {
+                transform: scale(1);
+            }
+
+            50% {
+                transform: scale(1.05);
+            }
+        }
+
+        @keyframes typing {
+            from {
+                width: 0;
+            }
+
+            to {
+                width: 100%;
+            }
+        }
+
+        @keyframes countUp {
+            from {
+                opacity: 0;
+                transform: scale(0.5);
+            }
+
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: var(--font-main);
+        }
+
+        body {
+            background-color: var(--white);
+            color: #333;
+            overflow-x: hidden;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: 0.3s;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        /* --- HEADER & NAV --- */
+        header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            padding: 15px 50px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 100;
+            background: rgba(15, 23, 42, 0.85);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        header.scrolled {
+            padding: 10px 50px;
+            background: rgba(15, 23, 42, 0.95);
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--white);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            background: linear-gradient(135deg, var(--primary-color), var(--accent-gold));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        nav ul {
+            display: flex;
+            gap: 25px;
+            align-items: center;
+        }
+
+        nav ul li a {
+            color: var(--white);
+            font-size: 13px;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            padding: 8px 0;
+            position: relative;
+        }
+
+        nav ul li a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--primary-color);
+            transition: width 0.3s ease;
+        }
+
+        nav ul li a:hover::after {
+            width: 100%;
+        }
+
+        nav ul li a:hover {
+            color: var(--primary-light);
+        }
+
+        .nav-cta {
+            background: linear-gradient(135deg, var(--primary-color), var(--primary-light));
+            padding: 10px 20px !important;
+            border-radius: 25px;
+            font-weight: 600 !important;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .nav-cta:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 20px rgba(37, 99, 235, 0.4);
+        }
+
+        .nav-cta::after {
+            display: none !important;
+        }
+
+        /* --- HERO SECTION --- */
+        .hero {
+            height: 100vh;
+            background: linear-gradient(135deg, rgba(15, 23, 42, 0.9), rgba(37, 99, 235, 0.7)), url('https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: var(--white);
+            padding-top: 80px;
+        }
+
+        .hero-img-container {
+            width: 180px;
+            height: 180px;
+            border-radius: 50%;
+            border: 4px solid var(--primary-color);
+            overflow: hidden;
+            margin-bottom: 25px;
+            box-shadow: 0 0 40px rgba(37, 99, 235, 0.5), 0 0 0 8px rgba(255, 255, 255, 0.1);
+            animation: fadeInUp 1s ease-out;
+        }
+
+        .hero-img-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .hero-img-container:hover img {
+            transform: scale(1.1);
+        }
+
+        .hero h1 {
+            font-size: 52px;
+            font-weight: 700;
+            margin-bottom: 15px;
+            animation: fadeInUp 1s ease-out 0.2s both;
+        }
+
+        .hero span {
+            background: linear-gradient(135deg, var(--primary-light), var(--accent-gold));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero p {
+            font-size: 18px;
+            font-weight: 400;
+            letter-spacing: 3px;
+            margin-bottom: 35px;
+            opacity: 0.9;
+            animation: fadeInUp 1s ease-out 0.4s both;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 15px;
+            animation: fadeInUp 1s ease-out 0.6s both;
+        }
+
+        .hero-btn {
+            padding: 14px 32px;
+            border-radius: 30px;
+            font-weight: 600;
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: all 0.3s ease;
+        }
+
+        .hero-btn.primary {
+            background: linear-gradient(135deg, var(--primary-color), var(--primary-light));
+            color: white;
+            box-shadow: 0 4px 20px rgba(37, 99, 235, 0.4);
+        }
+
+        .hero-btn.primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 30px rgba(37, 99, 235, 0.5);
+        }
+
+        .hero-btn.secondary {
+            background: transparent;
+            color: white;
+            border: 2px solid rgba(255, 255, 255, 0.5);
+        }
+
+        .hero-btn.secondary:hover {
+            background: rgba(255, 255, 255, 0.1);
+            border-color: white;
+        }
+
+        /* --- KEY STATS BANNER --- */
+        .stats-banner {
+            background: linear-gradient(135deg, var(--dark-bg), #1e3a5f);
+            padding: 40px 10%;
+            display: flex;
+            justify-content: center;
+            gap: 60px;
+            flex-wrap: wrap;
+        }
+
+        .stat-item {
+            text-align: center;
+            animation: countUp 0.8s ease-out both;
+        }
+
+        .stat-item:nth-child(1) {
+            animation-delay: 0.1s;
+        }
+
+        .stat-item:nth-child(2) {
+            animation-delay: 0.2s;
+        }
+
+        .stat-item:nth-child(3) {
+            animation-delay: 0.3s;
+        }
+
+        .stat-item:nth-child(4) {
+            animation-delay: 0.4s;
+        }
+
+        .stat-number {
+            font-size: 42px;
+            font-weight: 700;
+            background: linear-gradient(135deg, var(--primary-light), var(--accent-gold));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            line-height: 1.2;
+        }
+
+        .stat-label {
+            color: var(--text-grey);
+            font-size: 13px;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            margin-top: 5px;
+        }
+
+        /* Navigation Bar */
+        .nav-bar {
+            background: linear-gradient(135deg, var(--primary-color), var(--primary-light));
+            padding: 15px 0;
+            text-align: center;
+            position: sticky;
+            top: 60px;
+            z-index: 90;
+        }
+
+        .nav-bar ul {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+        }
+
+        .nav-bar a {
+            color: var(--white);
+            font-size: 12px;
+            text-transform: uppercase;
+            font-weight: 600;
+            letter-spacing: 1px;
+            transition: opacity 0.3s;
+        }
+
+        .nav-bar a:hover {
+            opacity: 0.8;
+        }
+
+        /* --- ABOUT & SKILLS SECTION --- */
+        .about-section {
+            padding: 80px 10%;
+            text-align: center;
+        }
+
+        .section-title h2 {
+            font-size: 32px;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+
+        .section-title p {
+            color: #777;
+            font-size: 14px;
+            margin-bottom: 50px;
+        }
+
+        .about-container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 40px;
+            flex-wrap: wrap;
+        }
+
+        .about-text {
+            flex: 1;
+            text-align: left;
+            min-width: 300px;
+        }
+
+        .about-text h3 {
+            margin-bottom: 15px;
+            font-size: 22px;
+        }
+
+        .about-text p {
+            color: #666;
+            line-height: 1.6;
+            margin-bottom: 15px;
+            font-size: 14px;
+        }
+
+        .about-photo {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            min-width: 250px;
+        }
+
+        .about-photo img {
+            width: 280px;
+            height: 280px;
+            border-radius: 50%;
+            object-fit: cover;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .skills-container {
+            flex: 1;
+            text-align: left;
+            min-width: 300px;
+        }
+
+        .skill-box {
+            margin-bottom: 20px;
+        }
+
+        .skill-info {
+            display: flex;
+            justify-content: space-between;
+            font-weight: 600;
+            margin-bottom: 5px;
+            font-size: 14px;
+        }
+
+        .progress-line {
+            width: 100%;
+            height: 6px;
+            background: #e0e0e0;
+            position: relative;
+            border-radius: 10px;
+        }
+
+        .progress-line span {
+            display: block;
+            height: 100%;
+            background: var(--primary-color);
+            border-radius: 10px;
+        }
+
+        /* --- CTA SECTION --- */
+        .cta-section {
+            background: #222;
+            padding: 60px 10%;
+            text-align: center;
+            color: var(--white);
+            position: relative;
+        }
+
+        .cta-section h2 {
+            font-size: 28px;
+            margin-bottom: 20px;
+        }
+
+        .play-btn {
+            width: 60px;
+            height: 60px;
+            background: var(--primary-color);
+            border-radius: 50%;
+            display: inline-flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            font-size: 20px;
+            margin-bottom: 20px;
+            box-shadow: 0 0 0 10px rgba(255, 0, 79, 0.2);
+        }
+
+        /* --- EXPERTISE (CATEGORIES) --- */
+        .expertise-section {
+            padding: 80px 10%;
+            background: #f9f9f9;
+        }
+
+        .cards-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+
+        .card {
+            background: var(--white);
+            padding: 40px 20px;
+            text-align: center;
+            border-radius: 5px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+            transition: 0.3s;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+        }
+
+        .card-icon {
+            width: 60px;
+            height: 60px;
+            background: #ffeef4;
+            color: var(--primary-color);
+            border-radius: 50%;
+            display: inline-flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+
+        .card h3 {
+            font-size: 18px;
+            margin-bottom: 10px;
+        }
+
+        .card p {
+            font-size: 13px;
+            color: #777;
+            line-height: 1.6;
+        }
+
+        /* --- EXPERIENCE TIMELINE (Instead of Portfolio Images) --- */
+        .experience-section {
+            padding: 80px 10%;
+        }
+
+        .timeline {
+            border-left: 2px solid var(--primary-color);
+            padding-left: 30px;
+            margin-left: 10px;
+        }
+
+        .timeline-item {
+            position: relative;
+            margin-bottom: 40px;
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -39px;
+            top: 5px;
+            width: 16px;
+            height: 16px;
+            background: var(--primary-color);
+            border-radius: 50%;
+        }
+
+        .timeline-date {
+            color: var(--primary-color);
+            font-weight: 600;
+            font-size: 14px;
+            margin-bottom: 5px;
+        }
+
+        .timeline-title {
+            font-size: 20px;
+            font-weight: 700;
+            margin-bottom: 5px;
+        }
+
+        .timeline-company {
+            font-size: 16px;
+            color: #333;
+            font-style: italic;
+            margin-bottom: 10px;
+        }
+
+        .timeline-desc {
+            color: #666;
+            font-size: 14px;
+            line-height: 1.6;
+        }
+
+        .timeline-desc ul {
+            list-style: disc;
+            margin-left: 20px;
+            margin-top: 5px;
+        }
+
+        /* --- TESTIMONIALS/AWARDS --- */
+        .awards-section {
+            background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)), url('https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80');
+            background-size: cover;
+            padding: 80px 10%;
+            text-align: center;
+            color: var(--white);
+        }
+
+        .award-box {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .award-box i {
+            font-size: 40px;
+            color: var(--primary-color);
+            margin-bottom: 20px;
+        }
+
+        .award-text {
+            font-size: 18px;
+            font-style: italic;
+            line-height: 1.8;
+            margin-bottom: 20px;
+        }
+
+        .award-title {
+            font-weight: 700;
+            color: var(--primary-color);
+        }
+
+        /* --- FOOTER / CONTACT --- */
+        footer {
+            background: #101010;
+            color: var(--white);
+            padding: 60px 10% 20px;
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .contact-item h4 {
+            font-size: 20px;
+            margin-bottom: 20px;
+            color: var(--white);
+        }
+
+        .contact-item p {
+            color: #999;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .contact-item i {
+            color: var(--primary-color);
+        }
+
+        .contact-form input,
+        .contact-form textarea {
+            width: 100%;
+            padding: 15px;
+            margin-bottom: 15px;
+            background: #1f1f1f;
+            border: 1px solid #333;
+            color: var(--white);
+            border-radius: 5px;
+        }
+
+        .btn {
+            background: linear-gradient(135deg, var(--primary-color), var(--primary-light));
+            color: white;
+            padding: 14px 32px;
+            border: none;
+            border-radius: 30px;
+            font-weight: 600;
+            cursor: pointer;
+            text-transform: uppercase;
+            font-size: 14px;
+            letter-spacing: 0.5px;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(37, 99, 235, 0.3);
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(37, 99, 235, 0.4);
+        }
+
+        .copyright {
+            text-align: center;
+            border-top: 1px solid #333;
+            padding-top: 20px;
+            font-size: 13px;
+            color: #777;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            header {
+                padding: 15px 20px;
+            }
+
+            .logo {
+                font-size: 18px;
+            }
+
+            nav ul {
+                gap: 15px;
+            }
+
+            nav ul li a {
+                font-size: 11px;
+            }
+
+            .nav-cta {
+                padding: 8px 12px !important;
+                font-size: 11px !important;
+            }
+
+            .hero h1 {
+                font-size: 32px;
+            }
+
+            .hero p {
+                font-size: 14px;
+                letter-spacing: 1px;
+            }
+
+            .hero-buttons {
+                flex-direction: column;
+                gap: 10px;
+            }
+
+            .hero-btn {
+                padding: 12px 24px;
+                font-size: 12px;
+            }
+
+            .stats-banner {
+                gap: 30px;
+                padding: 30px 5%;
+            }
+
+            .stat-number {
+                font-size: 28px;
+            }
+
+            .stat-label {
+                font-size: 11px;
+            }
+
+            .nav-bar {
+                top: 55px;
+            }
+
+            .nav-bar ul {
+                gap: 20px;
+            }
+
+            .about-container {
+                flex-direction: column;
+            }
+
+            .section-title h2 {
+                font-size: 26px;
+            }
+        }
+
+        /* Smooth Scroll */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Card hover enhancement */
+        .card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 40px rgba(37, 99, 235, 0.15);
+        }
+
+        .card-icon {
+            background: linear-gradient(135deg, rgba(37, 99, 235, 0.1), rgba(212, 167, 66, 0.1));
+        }
+
+        /* Timeline enhancement */
+        .timeline-item {
+            transition: transform 0.3s ease;
+        }
+
+        .timeline-item:hover {
+            transform: translateX(10px);
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Header -->
+    <header>
+        <div class="logo">SUMITHRA</div>
+        <nav>
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#experience">Experience</a></li>
+                <li><a href="#contact">Contact</a></li>
+                <li><a href="https://linkedin.com/in/yourprofile" target="_blank" class="nav-cta"><i
+                            class="fab fa-linkedin"></i> LinkedIn</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="hero-img-container">
+            <!-- REPLACE 'my-photo.jpg' WITH YOUR ACTUAL PHOTO FILENAME -->
+            <img src="my-photo.jpg" alt="Sumithra Ramachandran">
+        </div>
+        <h1>Hello, I'm <span>Sumithra</span></h1>
+        <p>Finance Professional | SAP FICO Specialist | Assistant Manager</p>
+        <div class="hero-buttons">
+            <a href="#contact" class="hero-btn primary">Hire Me</a>
+            <a href="resume.pdf" class="hero-btn secondary" download><i class="fas fa-download"></i> Download CV</a>
+        </div>
+    </section>
+
+    <!-- Key Stats Banner -->
+    <div class="stats-banner">
+        <div class="stat-item">
+            <div class="stat-number">12+</div>
+            <div class="stat-label">Years Experience</div>
+        </div>
+        <div class="stat-item">
+            <div class="stat-number">5</div>
+            <div class="stat-label">MNC Companies</div>
+        </div>
+        <div class="stat-item">
+            <div class="stat-number">6</div>
+            <div class="stat-label">Awards Won</div>
+        </div>
+        <div class="stat-item">
+            <div class="stat-number">100%</div>
+            <div class="stat-label">Audit Compliance</div>
+        </div>
+    </div>
+
+    <!-- Navigation Bar -->
+    <div class="nav-bar">
+        <ul>
+            <li><a href="#about">About</a></li>
+            <li><a href="#expertise">Expertise</a></li>
+            <li><a href="#experience">History</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </div>
+
+    <!-- About Section -->
+    <section class="about-section" id="about">
+        <div class="section-title">
+            <h2>My Self</h2>
+            <p>12+ Years Experience in Finance, Fixed Assets, & SAP FICO</p>
+        </div>
+
+        <div class="about-container">
+            <!-- Left Text -->
+            <div class="about-text">
+                <h3>Result-Oriented Finance Professional</h3>
+                <p>
+                    Seeking managerial assignments in Finance & Accounts with an organization of repute.
+                    12+ years of industry experience managing finance operations across Fixed Assets,
+                    General Ledger, Project Accounting, and Payments.
+                </p>
+                <p>
+                    Highly energetic and team-spirited professional with strong work ethics.
+                    Core competencies include GL accounting & reconciliation, AP payment processing,
+                    report generation, and working with SAP-FICO as an end user.
+                    Known for driving process discipline and effective stakeholder communication.
+                </p>
+                <a href="resume.pdf" class="btn" download><i class="fas fa-download"></i> Download CV</a>
+            </div>
+
+            <!-- Center Photo (Optional - can be same as hero or different) -->
+            <div class="about-photo">
+                <img src="my-photo.jpg" alt="Sumithra">
+            </div>
+
+            <!-- Right Skills -->
+            <div class="skills-container">
+                <div class="skill-box">
+                    <div class="skill-info">
+                        <p>SAP FICO & Blueprint</p>
+                        <p>95%</p>
+                    </div>
+                    <div class="progress-line"><span style="width: 95%"></span></div>
+                </div>
+                <div class="skill-box">
+                    <div class="skill-info">
+                        <p>Oracle (End User)</p>
+                        <p>90%</p>
+                    </div>
+                    <div class="progress-line"><span style="width: 90%"></span></div>
+                </div>
+                <div class="skill-box">
+                    <div class="skill-info">
+                        <p>Fixed Assets & GL Accounting</p>
+                        <p>95%</p>
+                    </div>
+                    <div class="progress-line"><span style="width: 95%"></span></div>
+                </div>
+                <div class="skill-box">
+                    <div class="skill-info">
+                        <p>MS Office & Tally</p>
+                        <p>90%</p>
+                    </div>
+                    <div class="progress-line"><span style="width: 90%"></span></div>
+                </div>
+                <div class="skill-box">
+                    <div class="skill-info">
+                        <p>Audit & Reconciliations</p>
+                        <p>95%</p>
+                    </div>
+                    <div class="progress-line"><span style="width: 95%"></span></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Call to Action -->
+    <section class="cta-section">
+        <div class="play-btn"><i class="fas fa-chart-line"></i></div>
+        <h2>Let's Work Together!</h2>
+        <a href="#contact" class="btn">Contact Now</a>
+    </section>
+
+    <!-- Expertise Section (Categories) -->
+    <section class="expertise-section" id="expertise">
+        <div class="section-title" style="text-align: center;">
+            <h2>Top Expertise</h2>
+            <p>Specialized functional areas and technical skills</p>
+        </div>
+
+        <div class="cards-grid">
+            <div class="card">
+                <div class="card-icon"><i class="fas fa-building"></i></div>
+                <h3>Fixed Assets</h3>
+                <p>End-to-end accounting, capitalization, depreciation runs (UOP/PRRT), and physical verification.</p>
+            </div>
+            <div class="card">
+                <div class="card-icon"><i class="fas fa-file-invoice-dollar"></i></div>
+                <h3>GL & Reconciliations</h3>
+                <p>Month-end close, journals, vendor recons, intercompany reconciliations, and variance analysis.</p>
+            </div>
+            <div class="card">
+                <div class="card-icon"><i class="fas fa-project-diagram"></i></div>
+                <h3>Project Accounting</h3>
+                <p>Managing AUC (Assets Under Construction), WBS allocation, and project capitalization schedules.</p>
+            </div>
+            <div class="card">
+                <div class="card-icon"><i class="fas fa-search-dollar"></i></div>
+                <h3>Audit & Compliance</h3>
+                <p>Primary liaison for external audits (EY), clearing samples, and ensuring zero-finding submissions.
+                </p>
+            </div>
+            <div class="card">
+                <div class="card-icon"><i class="fas fa-chart-pie"></i></div>
+                <h3>KPI Reporting</h3>
+                <p>Building monthly KPI decks, HFM variance explanations, and presenting to management.</p>
+            </div>
+            <div class="card">
+                <div class="card-icon"><i class="fas fa-certificate"></i></div>
+                <h3>Process Improvement</h3>
+                <p>Six Sigma Yellow Belt. Experience in creating SOPs and automating manual processes.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Section (Replaces Portfolio) -->
+    <section class="experience-section" id="experience">
+        <div class="section-title" style="text-align: center;">
+            <h2>Work Experience</h2>
+            <p>My professional journey through top multinational corporations</p>
+        </div>
+
+        <div class="timeline">
+            <div class="timeline-item">
+                <p class="timeline-date">Nov 2022 - Present</p>
+                <h3 class="timeline-title">Sr. Subject Matter Expert</h3>
+                <p class="timeline-company">FLSmidth</p>
+                <div class="timeline-desc">
+                    <ul>
+                        <li>Monitoring all asset creation aligned with correct depreciation keys</li>
+                        <li>Preparing RCX warranty, provision, order workflow & backlog reconciliations</li>
+                        <li>Project creation & allocating order intake for existing projects</li>
+                        <li>Monthly stakeholder calls for order workflow/revenue variance explanation</li>
+                        <li>Primary resource for quarterly External audit (E&Y) - zero findings</li>
+                        <li>Preparing monthly KPI reports for management and stakeholders</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="timeline-item">
+                <p class="timeline-date">Jul 2019 - Nov 2022</p>
+                <h3 class="timeline-title">Subject Matter Expert</h3>
+                <p class="timeline-company">Renault Nissan Technology Business Centre India</p>
+                <div class="timeline-desc">
+                    <ul>
+                        <li>Led a team of 12 members with daily huddles & quarterly meetings</li>
+                        <li>Approver for journal entries, reconciliations & payment processing</li>
+                        <li>Monthly HFM variance explanation calls for all above-threshold entities</li>
+                        <li>Primary resource for quarterly External audit (E&Y)</li>
+                        <li>Process improvement tool coordinator for the finance project</li>
+                        <li>Created and maintained SOPs for knowledge transfer</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="timeline-item">
+                <p class="timeline-date">May 2016 - Jul 2019</p>
+                <h3 class="timeline-title">Process Lead</h3>
+                <p class="timeline-company">Capgemini BPO</p>
+                <div class="timeline-desc">
+                    <ul>
+                        <li>End-to-end Fixed Assets accounting responsibility</li>
+                        <li>Final approver for all reconciliations and journal entries</li>
+                        <li>Coordinated with SAP FICO team to resolve QR3 tickets</li>
+                        <li>Led physical asset verification process on yearly basis</li>
+                        <li>Achieved 100% SLA compliance in journal processing</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="timeline-item">
+                <p class="timeline-date">May 2013 - May 2016</p>
+                <h3 class="timeline-title">Analyst</h3>
+                <p class="timeline-company">Shell Business Services Centre</p>
+                <div class="timeline-desc">
+                    <ul>
+                        <li>Managed all unconventional fields for SEPCO</li>
+                        <li>Involved in major divestments and impairments (2013-2016)</li>
+                        <li>Depreciation variance analysis (UOP method) & PRRT reporting</li>
+                        <li>Posted 'J' accounts depreciation entries (US GAAP vs IFRS)</li>
+                        <li>Prepared reserve templates and production volume updates</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="timeline-item">
+                <p class="timeline-date">Sep 2009 - May 2013</p>
+                <h3 class="timeline-title">Senior Process Associate</h3>
+                <p class="timeline-company">Capgemini BPO</p>
+                <div class="timeline-desc">
+                    <ul>
+                        <li>Fixed Assets - acquisitions, transfers, and retirements</li>
+                        <li>Prepared sub-ledger vs main ledger reconciliations</li>
+                        <li>Completed Yellow Belt Six Sigma certification</li>
+                        <li>Handled SAP, Citrix, BPOpen GL/AP Client systems</li>
+                        <li>Cross-functional activities with General Accounting Team</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Achievements / Awards Section -->
+    <section class="awards-section">
+        <div class="section-title" style="color:white; margin-bottom:30px;">
+            <h2>Achievements & Recognition</h2>
+        </div>
+        <div class="award-box">
+            <i class="fas fa-trophy"></i>
+            <p class="award-text">
+                "Best Individual Employee Award (FLSmidth) • Star & Rising Star Award (Renault Nissan) •
+                Best Employee Award (Capgemini BPO) • Yellow Belt Six Sigma Certification •
+                Special Appreciation from E&Y Audit - Zero Findings • Multiple Appreciations for Divestments &
+                Impairments (Shell)"
+            </p>
+            <h4 class="award-title">SUMITHRA RAMACHANDRAN</h4>
+            <p style="margin-top:20px; font-size: 14px; opacity: 0.9;">
+                <i class="fas fa-graduation-cap"></i> MBA Finance - Pondicherry University (2010) •
+                <i class="fas fa-graduation-cap"></i> B.Com (C.S) - Ethiraj College (2007)
+            </p>
+        </div>
+    </section>
+
+    <!-- Footer / Contact -->
+    <footer id="contact">
+        <div class="section-title">
+            <h2 style="color: white">Let's Connect</h2>
+            <p style="color: #777">Open to managerial assignments in Finance & Accounts</p>
+        </div>
+
+        <div class="contact-grid">
+            <div class="contact-item">
+                <h4>Contact Details</h4>
+                <p><i class="fas fa-phone-alt"></i> +91-9962271114</p>
+                <p><i class="fas fa-envelope"></i> sumee_0212@yahoo.com</p>
+                <p><i class="fas fa-envelope"></i> sumee_0286@yahoo.in</p>
+                <p><i class="fas fa-map-marker-alt"></i> Chennai, Tamil Nadu, India</p>
+                <br>
+                <h4 style="font-size: 16px;">Languages</h4>
+                <p style="font-size: 13px;">English (Fluent) • Tamil (Native) • Telugu (Fluent)</p>
+                <br>
+                <h4 style="font-size: 16px;">Technical Skills</h4>
+                <p style="font-size: 13px;">SAP FICO & Blueprint • Oracle • MS Office • Tally</p>
+            </div>
+
+            <div class="contact-form">
+                <form>
+                    <input type="text" placeholder="Your Name">
+                    <input type="email" placeholder="Your Email">
+                    <textarea rows="4" placeholder="Message"></textarea>
+                    <button type="submit" class="btn">Send Message</button>
+                </form>
+            </div>
+        </div>
+
+        <div class="copyright">
+            &copy; 2025 Sumithra Ramachandran. All Rights Reserved.
+        </div>
+    </footer>
+
+    <!-- Scroll Effect Script -->
+    <script>
+        window.addEventListener('scroll', function () {
+            const header = document.querySelector('header');
+            if (window.scrollY > 100) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+    </script>
+
+</body>
+
+</html>
